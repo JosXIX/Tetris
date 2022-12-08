@@ -134,13 +134,36 @@
               Grid.ColumnSpan="3"
               Tag="1"
               Visibility="Visible">
+            <TextBlock Text="Enter your name"
+                       FontSize="36"
+                       TextAlignment="Center"
+                       Margin="0, 50, 0, 0"/>
+            <TextBlock x:Name="tb_PlayerName"
+                       Text=""
+                       FontSize="30"
+                       TextAlignment="Center"
+                       Margin="0, 150, 0, 0"/>
+            <Button x:Name="btn_Uppercase"
+                    Content="0"
+                    FontSize="26"
+                    Background="Green"
+                    Height="170"
+                    Width="40"
+                    Margin="40,372,718,40"/>
             <Button x:Name="btn_Q"
                     Content="q"
                     FontSize="26"
                     Background="Green"
                     Height="40"
                     Width="40"
-                    Margin="85,361,673,181"/>
+                    Margin="85,372,673,170"/>
+            <Button x:Name="btn_Y"
+                    Content="y"
+                    FontSize="26"
+                    Background="Green"
+                    Height="40"
+                    Width="40"
+                    Margin="85,502,673,40"/>
         </Grid>
     </Grid>
 </Window>
