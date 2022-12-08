@@ -98,6 +98,12 @@
                         Margin="0, 10, 0, 0"
                         Padding="5"
                         Tag="1"/>
+                <Button x:Name="btn_NameForHighscore"
+                        Content="Name"
+                        Background="LightGreen"
+                        Margin="0, 20, 0, 0"
+                        Padding="5"
+                        Tag="1"/>
             </StackPanel>
         </Grid>
         <Grid x:Name="HighscoreMenu"
@@ -112,6 +118,7 @@
                            FontSize="48"
                            Margin="0, 20, 0, 0"/>
                 <TextBlock x:Name="tb_HighscoreRanking"
+                           TextAlignment="Center"
                            FontSize="36"
                            Margin="0, 20, 0, 0"/>
             </StackPanel>
@@ -119,7 +126,21 @@
                     Content="↵"
                     Background="LightGreen"
                     RenderTransformOrigin="-6.306,6.894" 
-                    Margin="40,503,712,40"/>
+                    Margin="40,460,693,40"/>
+        </Grid>
+        <Grid x:Name="NameForHighscoreMenu"
+              Background="#CC000000"
+              Grid.RowSpan="2"
+              Grid.ColumnSpan="3"
+              Tag="1"
+              Visibility="Visible">
+            <Button x:Name="btn_Q"
+                    Content="q"
+                    FontSize="26"
+                    Background="Green"
+                    Height="40"
+                    Width="40"
+                    Margin="85,361,673,181"/>
         </Grid>
     </Grid>
 </Window>

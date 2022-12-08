@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -167,7 +168,9 @@ namespace Tetris
                 if (btn_PlayAgain.Tag.ToString() == "1")
                 {
                     btn_Highscore.Background = new SolidColorBrush(Colors.Green);
+                    btn_NameForHighscore.Background = new SolidColorBrush(Colors.Green);
                     btn_Highscore.Tag = "0";
+                    btn_NameForHighscore.Tag = "0";
 
                     switch (e.Key)
                     {
@@ -182,12 +185,17 @@ namespace Tetris
                 if (btn_Highscore.Tag.ToString() == "1")
                 {
                     btn_PlayAgain.Background = new SolidColorBrush(Colors.Green);
+                    btn_NameForHighscore.Background = new SolidColorBrush(Colors.Green);
                     btn_PlayAgain.Tag = "0";
+                    btn_NameForHighscore.Tag = "0";
 
                     switch (e.Key)
                     {
                         case Key.A:
                             ShowHighscoreMenu();
+                            break;
+                        case Key.Down:
+                            MoveToNameForHighscore();
                             break;
                         case Key.Up:
                             MoveToPlayAgain();
@@ -204,35 +212,54 @@ namespace Tetris
                         }
                     }
                 }
-            }
+                if (btn_NameForHighscore.Tag.ToString() == "1")
+                {
+                    btn_PlayAgain.Background = new SolidColorBrush(Colors.Green);
+                    btn_Highscore.Background = new SolidColorBrush(Colors.Green);
+                    btn_PlayAgain.Tag = "0";
+                    btn_Highscore.Tag = "0";
 
-            switch (e.Key)
-            {
-                case Key.Left:
-                    gameState.MoveBlockLeft();
-                    break;
-                case Key.Right:
-                    gameState.MoveBlockRight();
-                    break;
-                case Key.Down:
-                    gameState.MoveBlockDown();
-                    break;
-                case Key.A:
-                    gameState.RotateBlockCW();
-                    break;
-                case Key.B:
-                    gameState.RotateBlockCCW();
-                    break;
-                case Key.Up:
-                    gameState.StoreBlock();
-                    break;
-                case Key.Space:
-                    gameState.DropBlock();
-                    break;
-                default:
-                    return;
+                    switch (e.Key)
+                    {
+                        case Key.A:
+                            ShowNameForHighscoreMenu();
+                            break;
+                        case Key.Up:
+                            MoveToHighscore();
+                            break;
+                    }
+                }
             }
-            Draw(gameState);
+            else
+            {
+                switch (e.Key)
+                {
+                    case Key.Left:
+                        gameState.MoveBlockLeft();
+                        break;
+                    case Key.Right:
+                        gameState.MoveBlockRight();
+                        break;
+                    case Key.Down:
+                        gameState.MoveBlockDown();
+                        break;
+                    case Key.A:
+                        gameState.RotateBlockCW();
+                        break;
+                    case Key.B:
+                        gameState.RotateBlockCCW();
+                        break;
+                    case Key.Up:
+                        gameState.StoreBlock();
+                        break;
+                    case Key.Space:
+                        gameState.DropBlock();
+                        break;
+                    default:
+                        return;
+                }
+                Draw(gameState);
+            }
         }
 
         private async void GameCanvas_Loaded(object sender, RoutedEventArgs e)
@@ -260,7 +287,14 @@ namespace Tetris
             HighscoreMenu.Tag = "1";
             GameOverMenu.Visibility = Visibility.Hidden;
 
-            tb_HighscoreRanking.Text = "hi";
+            string sHighscores = System.IO.File.ReadAllText("E:/Schule/Tetris - Kopie (2)/Tetris/assets/highscore.txt");
+
+            tb_HighscoreRanking.Text = sHighscores;
+        }
+
+        public void ShowNameForHighscoreMenu()
+        {
+
         }
 
         public void MoveToPlayAgain()
@@ -278,19 +312,18 @@ namespace Tetris
             btn_Highscore.Tag = "1";
 
             btn_PlayAgain.Background = new SolidColorBrush(Colors.Green);
+            btn_NameForHighscore.Background = new SolidColorBrush(Colors.Green);
             btn_PlayAgain.Tag = "0";
+            btn_NameForHighscore.Tag = "0";
         }
 
-
-        private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        public void MoveToNameForHighscore()
         {
+            btn_NameForHighscore.Background = new SolidColorBrush(Colors.LightGreen);
+            btn_NameForHighscore.Tag = "1";
 
-        }
-
-        private void CommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
-        {
-            PlayAgain();
-            ShowHighscoreMenu();
+            btn_Highscore.Background = new SolidColorBrush(Colors.Green);
+            btn_Highscore.Tag = "0";
         }
     }
 }
