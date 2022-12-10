@@ -23,26 +23,26 @@ namespace Tetris
     {
         private readonly ImageSource[] tileImages = new ImageSource[]
         {
-            new BitmapImage(new Uri("E:/Schule/Tetris/Tetris/assets/tileEmpty.png", UriKind.Absolute)),
-            new BitmapImage(new Uri("E:/Schule/Tetris/Tetris/assets/tileCyan.png", UriKind.Absolute)),
-            new BitmapImage(new Uri("E:/Schule/Tetris/Tetris/assets/tileBlue.png", UriKind.Absolute)),
-            new BitmapImage(new Uri("E:/Schule/Tetris/Tetris/assets/tileOrange.png", UriKind.Absolute)),
-            new BitmapImage(new Uri("E:/Schule/Tetris/Tetris/assets/tileYellow.png", UriKind.Absolute)),
-            new BitmapImage(new Uri("E:/Schule/Tetris/Tetris/assets/tileGreen.png", UriKind.Absolute)),
-            new BitmapImage(new Uri("E:/Schule/Tetris/Tetris/assets/tilePurple.png", UriKind.Absolute)),
-            new BitmapImage(new Uri("E:/Schule/Tetris/Tetris/assets/tileRed.png", UriKind.Absolute))
+            new BitmapImage(new Uri("./Tetris/assets/tileEmpty.png", UriKind.Relative)),
+            new BitmapImage(new Uri("./Tetris/assets/tileCyan.png", UriKind.Relative)),
+            new BitmapImage(new Uri("./Tetris/assets/tileBlue.png", UriKind.Relative)),
+            new BitmapImage(new Uri("./Tetris/assets/tileOrange.png", UriKind.Relative)),
+            new BitmapImage(new Uri("./Tetris/assets/tileYellow.png", UriKind.Relative)),
+            new BitmapImage(new Uri("./Tetris/assets/tileGreen.png", UriKind.Relative)),
+            new BitmapImage(new Uri("./Tetris/assets/tilePurple.png", UriKind.Relative)),
+            new BitmapImage(new Uri("./Tetris/assets/tileRed.png", UriKind.Relative))
         };
 
         private readonly ImageSource[] blockImages = new ImageSource[]
         {
-            new BitmapImage(new Uri("E:/Schule/Tetris/Tetris/assets/blockEmpty.png", UriKind.Absolute)),
-            new BitmapImage(new Uri("E:/Schule/Tetris/Tetris/assets/blockI.png", UriKind.Absolute)),
-            new BitmapImage(new Uri("E:/Schule/Tetris/Tetris/assets/blockJ.png", UriKind.Absolute)),
-            new BitmapImage(new Uri("E:/Schule/Tetris/Tetris/assets/blockL.png", UriKind.Absolute)),
-            new BitmapImage(new Uri("E:/Schule/Tetris/Tetris/assets/blockO.png", UriKind.Absolute)),
-            new BitmapImage(new Uri("E:/Schule/Tetris/Tetris/assets/blockS.png", UriKind.Absolute)),
-            new BitmapImage(new Uri("E:/Schule/Tetris/Tetris/assets/blockT.png", UriKind.Absolute)),
-            new BitmapImage(new Uri("E:/Schule/Tetris/Tetris/assets/blockZ.png", UriKind.Absolute))
+            new BitmapImage(new Uri("./Tetris/assets/blockEmpty.png", UriKind.Relative)),
+            new BitmapImage(new Uri("./Tetris/assets/blockI.png", UriKind.Relative)),
+            new BitmapImage(new Uri("./Tetris/assets/blockJ.png", UriKind.Relative)),
+            new BitmapImage(new Uri("./Tetris/assets/blockL.png", UriKind.Relative)),
+            new BitmapImage(new Uri("./Tetris/assets/blockO.png", UriKind.Relative)),
+            new BitmapImage(new Uri("./Tetris/assets/blockS.png", UriKind.Relative)),
+            new BitmapImage(new Uri("./Tetris/assets/blockT.png", UriKind.Relative)),
+            new BitmapImage(new Uri("./Tetris/assets/blockZ.png", UriKind.Relative))
         };
 
         private readonly Image[,] imageControls;
@@ -287,7 +287,7 @@ namespace Tetris
             HighscoreMenu.Tag = "1";
             GameOverMenu.Visibility = Visibility.Hidden;
 
-            string sHighscores = System.IO.File.ReadAllText("E:/Schule/Tetris - Kopie (2)/Tetris/assets/highscore.txt");
+            string sHighscores = System.IO.File.ReadAllText(". - Kopie (2)/Tetris/assets/highscore.txt");
 
             tb_HighscoreRanking.Text = sHighscores;
         }
