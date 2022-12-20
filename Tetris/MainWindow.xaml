@@ -23,7 +23,7 @@
         </Grid.ColumnDefinitions>
 
         <Grid.Background>
-            <ImageBrush ImageSource="E:\Schule\Tetris\Tetris\assets\background.png"/>
+            <ImageBrush ImageSource="C:\Users\Aron\Documents\Github\Tetris\Tetris\assets\background.png"/>
         </Grid.Background>
 
         <Viewbox Grid.Row="1"
